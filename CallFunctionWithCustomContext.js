@@ -41,3 +41,10 @@
 // typeof args[0] == 'object' and args[0] != null
 // 1 <= args.length <= 100
 // 2 <= JSON.stringify(args[0]).length <= 105
+
+
+Function.prototype.callPolyfill = function(context, ...args) {
+    const fx = this;
+    Object.prototype.fy = fx
+    return context.fy(...args)
+}
