@@ -64,3 +64,19 @@
 // Each object in arr1 and arr2 has a unique integer id key
 // 2 <= JSON.stringify(arr1).length <= 106
 // 2 <= JSON.stringify(arr2).length <= 106
+
+
+var join = function(arr1, arr2) {
+    var combinedArr = [...arr1, ...arr2];
+    var object = {}
+    combinedArr.forEach((obj) => {
+        let id = obj.id
+        if (!object[id]) {
+            object[id] = {...obj}
+        } else {
+            object[id] = {...object[id], ...obj}
+        }
+    });
+    var joinedArr = Object.values(object)
+    return joinedArr
+};
