@@ -27,3 +27,31 @@ Constraints:
 1 <= nums[i] <= 104
 
 */
+
+/**
+ * @param {number} target
+ * @param {number[]} nums
+ * @return {number}
+ */
+var minSubArrayLen = function(target, nums) {
+    const sum = nums.reduce((partialSum, a) => partialSum + a, 0)
+    var newArr = nums.sort((a, b) => b-a);
+    var arr = [];
+    if (sum < target) {
+        return 0;
+    } else if (sum == target) {
+        return sum.length
+    } else {
+        for (var i = 0; i < newArr.length; i++) {
+            const current = newArr[i];
+            if (current == target) {
+                return 1;
+            }
+             arr.push(current);
+             var check = arr.reduce((sum, a) => sum + a, 0) 
+             if (check >= target) {
+                 return arr.length
+             }
+        }
+    }
+ };
