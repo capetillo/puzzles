@@ -40,11 +40,11 @@ var minSubArrayLen = function(target, nums) {
     if (sum < target) {
         return 0;
     } else if (sum == target) {
-        return sum.length
+        return nums.length
     } else {
         for (var i = 0; i < newArr.length; i++) {
-            const current = newArr[i];
-            if (current == target) {
+            var current = newArr[i];
+            if (current >= target) {
                 return 1;
             }
              arr.push(current);
