@@ -23,3 +23,14 @@ Constraints:
 
 -231 <= x <= 231 - 1
 */
+
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var reverse = function(x) {
+    return (
+        parseFloat(x.toString().split('').reverse().join('')
+    ) * Math.sign(x)
+  )    
+};
